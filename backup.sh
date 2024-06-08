@@ -9,15 +9,6 @@ FILE_NAME="Jaya_Vaishnavi_AWS_Devops.docx"
 # Define the S3 bucket name
 BUCKET_NAME="aws-backup-bucket-files"
 
-# Generate a timestamp
-TIMESTAMP=$(date +%Y%m%d%H%M%S)
-
-# Define the backup file name
-BACKUP_NAME="backup-$TIMESTAMP.tar.gz"
-
-# Create a compressed archive of the specific file
-tar -czf /tmp/$BACKUP_NAME -C "$SOURCE_DIR" "$FILE_NAME"
-
 # Determine the MIME type based on the file extension
 EXTENSION="${FILE_NAME##*.}"
 case "$EXTENSION" in
@@ -41,8 +32,17 @@ case "$EXTENSION" in
         ;;
 esac
 
-# Upload the backup to S3 with the correct MIME type
-aws s3 cp /tmp/$BACKUP_NAME s3://$BUCKET_NAME/$BACKUP_NAME --content-type "$MIME_TYPE"
+# Generate a timestamp
+TIMESTAMP=$(date +%Y%m%d%H%M%S)
 
-# Remove the local backup file
-rm /tmp/$BACKUP_NAME
+# Define the backup file name with timestamp
+BACKUP_NAME="$TIMESTAMP-$FILE_NAME"
+
+# Upload the file to S3 with the correct MIME type
+aws s3 cp "$SOURCE_DIR/$FILE_NAME" s3://$BUCKET_NAME/$BACKUP_NAME --content-type "$MIME_TYPE"
+
+# Print the URL of the uploaded file
+echo "File uploaded to: https://$BUCKET_NAME.s3.amazonaws.com/$BACKUP_NAME"
+
+# Make the uploaded file public
+aws s3api put-object-acl --bucket $BUCKET_NAME --key "$BACKUP_NAME" --acl public-read
