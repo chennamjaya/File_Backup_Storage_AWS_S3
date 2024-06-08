@@ -1,6 +1,6 @@
 #!/bin/bash
-SOURCE_DIR="/path/to/your/files"
-BUCKET_NAME="my-backup-bucket"
+SOURCE_DIR="C:\Users\vaishnavi\Desktop\index.htm"
+BUCKET_NAME="aws-backup-bucket-files"
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 BACKUP_NAME="backup-$TIMESTAMP.tar.gz"
 
