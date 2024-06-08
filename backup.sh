@@ -44,5 +44,3 @@ aws s3 cp "$SOURCE_DIR/$FILE_NAME" s3://$BUCKET_NAME/$BACKUP_NAME --content-type
 # Print the URL of the uploaded file
 echo "File uploaded to: https://$BUCKET_NAME.s3.amazonaws.com/$BACKUP_NAME"
 
-# Make the uploaded file public
-aws s3api put-object-acl --bucket $BUCKET_NAME --key "$BACKUP_NAME" --acl public-read
