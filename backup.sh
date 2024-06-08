@@ -1,5 +1,5 @@
 #!/bin/bash
-SOURCE_DIR="C:\Users\vaishnavi\Desktop\Jaya_Vaishnavi_AWS_Devops.docx"
+SOURCE_DIR="C:/Users/vaishnavi/Desktop/Jaya_Vaishnavi_AWS_Devops.docx"
 BUCKET_NAME="aws-backup-bucket-files"
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 BACKUP_NAME="backup-$TIMESTAMP.tar.gz"
