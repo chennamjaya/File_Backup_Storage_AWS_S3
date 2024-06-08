@@ -1,10 +1,10 @@
 # File_Backup_Storage_AWS_S3
-In this blog article, I'll explain a small project I accomplished today to set up an automatic file backup utilizing the Amazon S3 service and a simple bash script to conduct the backup process. 
-Prerequisites: create an S3 bucket in an Amazon account, use vs code to modify code, and build a project repository with a Github account.
+In this project, I set up an automatic file backup utilizing the Amazon S3 service and a simple bash script to conduct the backup process. 
+Prerequisites: Create an S3 bucket in an Amazon account, use vs code to modify code, and build a project repository with a GitHub account.
 
-The goal of this project is to build up an automated backup system utilizing Amazon S3 to safeguard and maintain the availability of files saved on your local machine or server. Here's why you might take on this project. 
+This project aims to build up an automated backup system utilizing Amazon S3 to safeguard and maintain the availability of files saved on your local machine or server. Here's why you might take on this project. 
 1. Backup your files to Amazon S3 to prevent accidental deletion, corruption, or hardware failure on your local machine or server. S3 backups are durable, redundant, and scalable.
-2. Backups stored on S3 enable speedy recovery from disasters including server crashes, ransomware attacks, and natural disasters, minimizing downtime and restoring normal operations.
+2. Backups stored on S3 enable speedy recovery from server crashes, ransomware attacks, and natural disasters, minimizing downtime and restoring normal operations.
 3. Cost-Effective Storage: Amazon S3 provides affordable storage alternatives where you only pay for the storage and bandwidth you require. This may be less expensive than traditional backup solutions or the maintenance of additional backup storage hardware. 
 4. Automation: Automating backups lowers human error and assures consistent, scheduled backups. This allows you to devote more time and resources to other things. 
 5. Scalability: Amazon S3 can readily scale to meet growing data storage needs without requiring significant changes to your backup systems. 
@@ -12,7 +12,7 @@ Overall, implementing an automatic backup system using Amazon S3 provides peace 
 Step 1: Create a new repository in GitHub called File_Backup_Storage_AWS_S3 
 Use the git clone [repo URL] command to clone the repository URL to vscode. 
 Step 2: Log in to your Amazon AWS account and access Amazon S3 service. 
-Click on create a new bucket, for example: aws-backup-bucket-files. 
+Click on Create a new bucket, for example, aws-backup-bucket-files. 
 Step 3: Create AWS credentials and configuration files. 
 1. Create an AWS Credentials file. 
 To create a file, open VSCode and navigate to ~/.aws/credentials (Linux/macOS) or C:\Users\YourUsername\.aws\credentials (Windows). 
@@ -101,7 +101,7 @@ To stage your new script file, click the "+" symbol next to the file name.
 Type a commit message (e.g., "Add backup script"). 
 Click the checkbox to commit your changes. 
 3. To push your changes to GitHub, click the "..." symbol in the source control panel and select "Push". Git push origin
-4. To give permission to the files you can use the command chmod +x /path/to/file
+4. To permit the files you can use the command chmod +x /path/to/file
 Step 6: Update the S3 Bucket Policy. 
 To make the files publicly accessible, change the S3 bucket's policy to allow public read access. The bucket policy grants public read access to all objects in the bucket. This means that anyone can access the files through a browser using the specified URL.
 Here's how you can accomplish it: 
@@ -155,7 +155,7 @@ Check the output and logs to check that the cron task is executing properly. To 
 Redirect the output to a log file to record any mistakes or outputs: 
 0 2 * * * /mnt/c/Users/vaishnavi/my-website/File_Backup_Storage_AWS_S3/backup.sh >> /mnt/c/Users/vaishnavi/my-website/File_Backup_Storage_AWS_S3/backup.log 2>&1
 
-2. Examine the Log File: After the cron job completes, review the log file for any issues. 
+2. Examine the Log File: After the cron job is completed, review the log file for any issues. 
 cat /mnt/c/Users/vaishnavi/my-website/File_Backup_Storage_AWS_S3/backup.log
 Automating with Windows 
 If you're running Windows and utilizing WSL, the procedures above will work. If you do not wish to use WSL, you can use Task Scheduler: 
