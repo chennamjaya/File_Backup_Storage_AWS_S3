@@ -4,7 +4,7 @@
 SOURCE_DIR="/mnt/c/Users/vaishnavi/Desktop"  # Use the directory containing the file
 
 # Define the specific file to back up
-FILE_NAME="Jaya_Vaishnavi_AWS_Devops.docx"
+FILE_NAME="Jaya _Vaishnavi_AWS_Devops.docx"
 
 # Define the S3 bucket name
 BUCKET_NAME="aws-backup-bucket-files"
